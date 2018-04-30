@@ -1,0 +1,30 @@
+{
+  "name": "rls",
+  "version": "1.0.0",
+  "description": "Shows the user their rocket league stats",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "rls-api": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "handlebars ./views/homepage.handlebars -f ./homepage-template.handlebars",
+    "start": "node server.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carterols/RL-Stat-Tracker.git"
+  },
+  "author": "Carter Olsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carterols/RL-Stat-Tracker/issues"
+  },
+  "homepage": "https://github.com/carterols/RL-Stat-Tracker#readme"
+}
