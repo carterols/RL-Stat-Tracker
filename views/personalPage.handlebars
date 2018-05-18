@@ -1,0 +1,25 @@
+<header>
+    <title>RL Stats | {{displayName}}</title>
+    {{> header}}
+</header>
+
+<main class="personal-content">
+    <h1>{{displayName}}</h1>
+    <div class="stats-container">
+        <h3>Stats</h3>
+        {{#with stats}}
+            <p class="user-stats">Goals: {{goals}}</p>
+            <p class="user-stats">Assists: {{assists}}</p>
+            <p class="user-stats">Saves: {{saves}}</p>
+            <p class="user-stats">Wins: {{wins}}</p>
+        {{/with}}
+    </div>
+    <div class="ranked-season-container">
+        {{#each playlists}}
+            <p class="playlist-rank">
+                <span class="playlist-title">{{this.playlist}}:</span>
+                {{this.tier}} Division {{this.division}}
+            </p>
+        {{/each}}
+    </div>
+</main>

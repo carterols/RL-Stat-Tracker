@@ -5,30 +5,19 @@ function User (name, platform, doublesRank, standardRank, soloRank) {
     this.standardRank = standardRank;
 }
 
-const searchButton = document.getElementById('submitButton');
-searchButton.addEventListener('click', function (event) {
-    var userName = document.getElementById('username').value;
-    var request = new XMLHttpRequest();
-    var requestURL = '/getPlayer';
-    request.open('GET', requestURL);
+const submitButton = document.getElementById('submitButton');
 
-    var player = {
-        name: userName,
-        platform: 'XB1'
+submitButton.addEventListener('click', function (event) {
+    var displayName = document.getElementById('username').value;
+
+    var platforms = {
+        "STEAM": "1",
+        "PS4": "2",
+        "XB1": "3"
     };
+    var platform = platforms[document.getElementById('platforms').value];
 
-    var requestBody = JSON.stringify(player);
-    
-    request.setRequestHeader('Content-Type', 'application/json');
+    var requestURL = '/getPlayer/' + displayName + "/" + platform;
 
-    request.addEventListener('load', function (event) {
-        if (event.target.status !== 200) {
-            alert("Error! Problem finding player: " + event.target.response);
-        }
-        else {
-            console.log(event.target.response);
-        }
-    });
-
-    request.send(requestBody);
+    window.location.href = requestURL;
 });
